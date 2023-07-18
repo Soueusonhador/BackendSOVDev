@@ -5,7 +5,7 @@ connect.pool
 const deleteUsers = (req, res) => {
     const id = parseInt(req.params.id)
 
-    connect.pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+    connect.pool.query('DELETE FROM clients WHERE id = $1', [id], (error, results) => {
         if(error){
             throw error
         }

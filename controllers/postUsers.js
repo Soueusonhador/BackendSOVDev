@@ -35,7 +35,7 @@ const createUser = (req, res) => {
       }
   
       // Verificar se o CPF já está em uso.
-      connect.pool.query('SELECT * FROM users WHERE cpf = $1',
+      connect.pool.query('SELECT * FROM clients WHERE cpf = $1',
         [cpf],
         (error, results) => {
           if (error) {
@@ -48,7 +48,7 @@ const createUser = (req, res) => {
           
           // Inserir o novo usuário no banco de dados.
           connect.pool.query(
-            'INSERT INTO users (nome, email, telefone, cpf) VALUES ($1, $2, $3, $4) RETURNING *',
+            'INSERT INTO clients (nome, email, telefone, cpf) VALUES ($1, $2, $3, $4) RETURNING *',
             [nome, email, telefone, cpf],
             (error, results) => {
               if (error) {
