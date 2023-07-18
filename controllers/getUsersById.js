@@ -5,7 +5,7 @@ connect.pool
 const getUserById = (req, res) => {
     const id = parseInt(req.params.id)
 
-    connect.pool.query('SELECT * FROM users WHERE id = $1', [id], (error, results) => {
+    connect.pool.query('SELECT * FROM clients WHERE id = $1', [id], (error, results) => {
         if(error) {
             throw error
         }
